@@ -101,6 +101,7 @@ static NSNib *stickyNib;
 // Destroy the sticky
 - (BOOL)windowShouldClose:(id)sender
 {
+    [self removeObserver:self forKeyPath:windowFrameKey];
 	[[NSApp delegate] removeSticky:self];
 	return YES;
 }
